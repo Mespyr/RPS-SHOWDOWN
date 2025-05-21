@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/RPS_SHOWDOWN.dir/link.d CMakeFiles/RPS_SHOWDOWN.dir/src/main.cpp.o -o RPS_SHOWDOWN  /usr/lib/libraylib.so -L/usr/lib -lraylib
