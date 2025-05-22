@@ -29,9 +29,12 @@ void GameEngine::draw_player_choices() {
             std::cout << "paper" << std::endl;
         else if (hovering_over_scissors)
             std::cout << "scissors" << std::endl;
-		current_state = TRANSITION_TO_AI_MOVE;
+
+        if (hovering_over_rock || hovering_over_paper || hovering_over_scissors)
+            current_state = TRANSITION_TO_AI_MOVE;
     }
 
+    // split the screen into 3rds (minus padding on the edges)
     float   thirds = (width - 100) / 3;
     Vector2 rock_pos = {50, rock.get_pos().y};
     Vector2 paper_pos = {50 + thirds, paper.get_pos().y};
