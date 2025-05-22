@@ -23,7 +23,8 @@ void GameEngine::draw_get_player_move() {
         collision_point_rect(mouse_pos, scissors.get_dest());
 
     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-		// TODO: when adding code for saves and the AI-algorithm, replace cout with setting the player's choice.
+        // TODO: when adding code for saves and the AI-algorithm, replace cout
+        // with setting the player's choice.
         if (hovering_over_rock)
             std::cout << "rock" << std::endl;
         else if (hovering_over_paper)

@@ -42,7 +42,7 @@ class GameEngine {
     // render
     void clear_screen();
     void draw_HUD();
-	// states
+    // states
     void draw_get_player_move();
 
     // collisions
