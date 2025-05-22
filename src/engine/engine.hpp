@@ -42,7 +42,8 @@ class GameEngine {
     // render
     void clear_screen();
     void draw_HUD();
-    void draw_player_choices();
+	// states
+    void draw_get_player_move();
 
     // collisions
     bool collision_point_rect(Vector2 point, Rectangle rect);

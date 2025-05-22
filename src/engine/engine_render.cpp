@@ -5,16 +5,16 @@
 void GameEngine::clear_screen() { ClearBackground(LIGHTGRAY); }
 
 void GameEngine::draw_HUD() {
-    int font_height = 20;
+    int font_height = 24;
     int line_height = font_height + 5;
     int gap = 15;
-    DrawText("High Score: 0", gap, gap, 20, RED);
-    DrawText("Score: 0", gap, line_height + gap, 20, BLUE);
+    DrawText("High Score: 0", gap, gap, font_height, RED);
+    DrawText("Score: 0", gap, line_height + gap, font_height, BLUE);
 }
 
-void GameEngine::draw_player_choices() {
-    int text_width = MeasureText("Choose Your Move...", 30);
-    DrawText("Choose Your Move...", (width - text_width) / 2, 100, 30, BLACK);
+void GameEngine::draw_get_player_move() {
+    int text_width = MeasureText("Choose Your Move...", 40);
+    DrawText("Choose Your Move...", (width - text_width) / 2, 100, 40, BLACK);
 
     bool hovering_over_rock = collision_point_rect(mouse_pos, rock.get_dest());
     bool hovering_over_paper =
@@ -23,6 +23,7 @@ void GameEngine::draw_player_choices() {
         collision_point_rect(mouse_pos, scissors.get_dest());
 
     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+		// TODO: when adding code for saves and the AI-algorithm, replace cout with setting the player's choice.
         if (hovering_over_rock)
             std::cout << "rock" << std::endl;
         else if (hovering_over_paper)
