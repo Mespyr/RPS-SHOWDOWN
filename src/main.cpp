@@ -7,10 +7,17 @@ int main() {
 
     while (game.is_running()) {
         game.update();
-
         BeginDrawing();
         game.clear_screen();
-        game.draw_player_choices();
+
+        switch (game.get_state()) {
+        case GameEngine::State::GET_PLAYER_MOVE:
+            game.draw_player_choices();
+            break;
+        case GameEngine::State::TRANSITION_TO_AI_MOVE: break;
+        case GameEngine::State::GET_AI_MOVE: break;
+        }
+
         // game render sequence
         game.draw_HUD();
         EndDrawing();

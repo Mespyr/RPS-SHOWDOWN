@@ -5,8 +5,9 @@ HEADERS=$(foreach dir, $(SRC_DIRS), $(wildcard $(dir)/*.hpp))
 format: $(SRC_FILES) $(HEADERS)
 	clang-format -i $(SRC_FILES) $(HEADERS) -style=file
 
-build: $(SRC_FILES) $(HEADERS)
+build: FORCE
 	cmake --build build/
+FORCE: ;
 
 run: $(SRC_FILES) $(HEADERS)
 	./build/RPS_SHOWDOWN

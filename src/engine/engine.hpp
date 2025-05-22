@@ -32,9 +32,12 @@ class GameEngine {
     GameEngine(const std::string& name, float width, float height);
     ~GameEngine();
 
-    // updates
-    bool is_running();
-    void update();
+    typedef enum { GET_PLAYER_MOVE, TRANSITION_TO_AI_MOVE, GET_AI_MOVE } State;
+
+    // general
+    State get_state();
+    bool  is_running();
+    void  update();
 
     // render
     void clear_screen();
@@ -47,6 +50,7 @@ class GameEngine {
   private:
     const float width, height;
     Vector2     mouse_pos;
+    State       current_state = GET_PLAYER_MOVE;
 
     Sprite rock;
     Sprite paper;

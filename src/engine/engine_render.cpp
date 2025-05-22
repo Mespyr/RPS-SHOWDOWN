@@ -1,6 +1,6 @@
-#include "engine.hpp"
-
 #include <iostream>
+
+#include "engine.hpp"
 
 void GameEngine::clear_screen() { ClearBackground(LIGHTGRAY); }
 
@@ -13,8 +13,8 @@ void GameEngine::draw_HUD() {
 }
 
 void GameEngine::draw_player_choices() {
-	int text_width = MeasureText("Choose Your Move...", 30);
-    DrawText("Choose Your Move...", (width - text_width)/2, 100, 30, BLACK);
+    int text_width = MeasureText("Choose Your Move...", 30);
+    DrawText("Choose Your Move...", (width - text_width) / 2, 100, 30, BLACK);
 
     bool hovering_over_rock = collision_point_rect(mouse_pos, rock.get_dest());
     bool hovering_over_paper =
@@ -23,10 +23,14 @@ void GameEngine::draw_player_choices() {
         collision_point_rect(mouse_pos, scissors.get_dest());
 
     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-		if (hovering_over_rock) std::cout << "rock" << std::endl;
-		else if (hovering_over_paper) std::cout << "paper" << std::endl;
-		else if (hovering_over_scissors) std::cout << "scissors" << std::endl;
-	}
+        if (hovering_over_rock)
+            std::cout << "rock" << std::endl;
+        else if (hovering_over_paper)
+            std::cout << "paper" << std::endl;
+        else if (hovering_over_scissors)
+            std::cout << "scissors" << std::endl;
+		current_state = TRANSITION_TO_AI_MOVE;
+    }
 
     float   thirds = (width - 100) / 3;
     Vector2 rock_pos = {50, rock.get_pos().y};

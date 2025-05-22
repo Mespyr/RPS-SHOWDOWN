@@ -17,6 +17,8 @@ GameEngine::~GameEngine() {
     CloseWindow();
 }
 
+GameEngine::State GameEngine::get_state() { return current_state; }
+
 bool GameEngine::is_running() { return !WindowShouldClose(); }
 
 void GameEngine::update() { mouse_pos = GetMousePosition(); }
