@@ -1,3 +1,0 @@
-/home/mespyr/git/RPS-SHOWDOWN/build/CMakeFiles/RPS_SHOWDOWN.dir
-/home/mespyr/git/RPS-SHOWDOWN/build/CMakeFiles/edit_cache.dir
-/home/mespyr/git/RPS-SHOWDOWN/build/CMakeFiles/rebuild_cache.dir

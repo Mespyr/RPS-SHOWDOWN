@@ -1,21 +1,20 @@
 #include <raylib.h>
 
+#include "engine/engine.hpp"
+
 int main() {
-	InitWindow(1280, 720, "RPS SHOWDOWN");
+    GameEngine game("RPS SHOWDOWN", 1280, 720);
 
-	Texture2D rock_texture = LoadTexture("assets/rock.png");
-	Texture2D paper_texture = LoadTexture("assets/paper.png");
-	Texture2D scissors_texture = LoadTexture("assets/scissors.png");
+    while (game.is_running()) {
+        game.update();
 
-	while (!WindowShouldClose()) {
-		BeginDrawing();
-		ClearBackground(DARKBLUE);
-		EndDrawing();
-	}
+        BeginDrawing();
+        game.clear_screen();
+        game.draw_player_choices();
+        // game render sequence
+        game.draw_HUD();
+        EndDrawing();
+    }
 
-	UnloadTexture(rock_texture);
-	UnloadTexture(paper_texture);
-	UnloadTexture(scissors_texture);
-	CloseWindow();
-	return 0;
+    return 0;
 }
