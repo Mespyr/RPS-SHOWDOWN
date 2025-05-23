@@ -37,16 +37,16 @@ void GameEngine::draw_get_player_move() {
     }
 
     // split the screen into 3rds (minus padding on the edges)
-    float   thirds = (width - 100) / 3;
-    Vector2 rock_pos = {50, rock.get_pos().y};
-    Vector2 paper_pos = {50 + thirds, paper.get_pos().y};
-    Vector2 scissors_pos = {width - 50 - thirds, scissors.get_pos().y};
+    float   thirds = (width - 75) / 3;
+    Vector2 rock_pos = {37, rock.get_pos().y};
+    Vector2 paper_pos = {37 + thirds, paper.get_pos().y};
+    Vector2 scissors_pos = {37 + (thirds * 2), scissors.get_pos().y};
 
     // check hovering of sprites and adjust position accordingly
     if (hovering_over_rock)
         rock_pos.y = std::max<float>({350, rock_pos.y - 3});
     else
-        rock_pos.y = 400;
+        rock_pos.y = 390;
 
     if (hovering_over_paper)
         paper_pos.y = std::max<float>({350, paper_pos.y - 3});
@@ -56,7 +56,7 @@ void GameEngine::draw_get_player_move() {
     if (hovering_over_scissors)
         scissors_pos.y = std::max<float>({350, scissors_pos.y - 3});
     else
-        scissors_pos.y = 400;
+        scissors_pos.y = 390;
 
     rock.set_pos(rock_pos);
     paper.set_pos(paper_pos);
