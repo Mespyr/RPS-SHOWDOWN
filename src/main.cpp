@@ -11,11 +11,11 @@ int main() {
         game.clear_screen();
 
         switch (game.get_state()) {
-        case GameEngine::State::GET_PLAYER_MOVE:
-            game.draw_get_player_move();
+        case GameEngine::State::GET_PLAYER_CHOICE:
+            game.draw_get_player_choice();
             break;
-        case GameEngine::State::TRANSITION_TO_AI_MOVE: break;
-        case GameEngine::State::GET_AI_MOVE: break;
+        case GameEngine::State::TRANSITION_TO_AI_CHOICE: break;
+        case GameEngine::State::GET_AI_CHOICE: break;
         }
 
         // game render sequence

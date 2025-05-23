@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "engine.hpp"
 
 void GameEngine::clear_screen() { ClearBackground(LIGHTGRAY); }
@@ -12,7 +10,7 @@ void GameEngine::draw_HUD() {
     DrawText("Score: 0", gap, line_height + gap, font_height, BLUE);
 }
 
-void GameEngine::draw_get_player_move() {
+void GameEngine::draw_get_player_choice() {
     int text_width = MeasureText("Choose Your Move...", 40);
     DrawText("Choose Your Move...", (width - text_width) / 2, 100, 40, BLACK);
 
@@ -26,14 +24,14 @@ void GameEngine::draw_get_player_move() {
         // TODO: when adding code for saves and the AI-algorithm, replace cout
         // with setting the player's choice.
         if (hovering_over_rock)
-            std::cout << "rock" << std::endl;
+            player_choice = RPS_Choice::ROCK;
         else if (hovering_over_paper)
-            std::cout << "paper" << std::endl;
+            player_choice = RPS_Choice::PAPER;
         else if (hovering_over_scissors)
-            std::cout << "scissors" << std::endl;
+            player_choice = RPS_Choice::SCISSORS;
 
         if (hovering_over_rock || hovering_over_paper || hovering_over_scissors)
-            current_state = TRANSITION_TO_AI_MOVE;
+            current_state = TRANSITION_TO_AI_CHOICE;
     }
 
     // split the screen into 3rds (minus padding on the edges)
@@ -66,3 +64,5 @@ void GameEngine::draw_get_player_move() {
     paper.draw();
     scissors.draw();
 }
+
+void draw_transition_to_ai_move();

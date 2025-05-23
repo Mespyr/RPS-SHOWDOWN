@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <string>
 
+#include "../rps_choices.hpp"
 #include "../sprite.hpp"
 
 class GameEngine {
@@ -12,7 +13,7 @@ class GameEngine {
     GameEngine(const std::string& name, float width, float height);
     ~GameEngine();
 
-    typedef enum { GET_PLAYER_MOVE, TRANSITION_TO_AI_MOVE, GET_AI_MOVE } State;
+    typedef enum { GET_PLAYER_CHOICE, TRANSITION_TO_AI_CHOICE, GET_AI_CHOICE} State;
 
     // general
     State get_state();
@@ -23,7 +24,8 @@ class GameEngine {
     void clear_screen();
     void draw_HUD();
     // states
-    void draw_get_player_move();
+    void draw_get_player_choice();
+    void draw_transition_to_ai_choice();
 
     // collisions
     bool collision_point_rect(Vector2 point, Rectangle rect);
@@ -31,7 +33,8 @@ class GameEngine {
   private:
     const float width, height;
     Vector2     mouse_pos;
-    State       current_state = GET_PLAYER_MOVE;
+    State       current_state = GET_PLAYER_CHOICE;
+    RPS_Choice  player_choice = RPS_Choice::NONE;
 
     Sprite rock;
     Sprite paper;
