@@ -44,17 +44,17 @@ void GameEngine::draw_get_player_move() {
 
     // check hovering of sprites and adjust position accordingly
     if (hovering_over_rock)
-        rock_pos.y = std::max<float>({350, rock_pos.y - 3});
+        rock_pos.y = std::max<float>({350, rock_pos.y - 4});
     else
         rock_pos.y = 390;
 
     if (hovering_over_paper)
-        paper_pos.y = std::max<float>({350, paper_pos.y - 3});
+        paper_pos.y = std::max<float>({350, paper_pos.y - 4});
     else
         paper_pos.y = 400;
 
     if (hovering_over_scissors)
-        scissors_pos.y = std::max<float>({350, scissors_pos.y - 3});
+        scissors_pos.y = std::max<float>({350, scissors_pos.y - 4});
     else
         scissors_pos.y = 390;
 

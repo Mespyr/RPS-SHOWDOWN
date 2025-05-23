@@ -1,4 +1,4 @@
-#include "engine.hpp"
+#include "sprite.hpp"
 
 void Sprite::init(const std::string& file_path, Rectangle src, Rectangle dest) {
     source = src;
