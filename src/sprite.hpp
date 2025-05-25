@@ -6,7 +6,8 @@
 
 class Sprite {
   public:
-    void init(const std::string& file_path, Rectangle src, Rectangle dest);
+    void init(const std::string& file_path, Rectangle src, Rectangle dest,
+              float rotation = 0.0);
     void free();
     ~Sprite();
 
@@ -22,6 +23,7 @@ class Sprite {
 
   private:
     Rectangle source, destination;
+    float     degrees_rotation = 0.0;
     Texture2D texture;
     bool      freed = false;
 };
