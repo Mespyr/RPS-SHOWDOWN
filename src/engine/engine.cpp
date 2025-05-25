@@ -33,6 +33,8 @@ GameEngine::State GameEngine::get_state() { return current_state; }
 
 void GameEngine::set_state(State state) { current_state = state; }
 
+RPS_Choice GameEngine::get_player_choice() { return player_choice; }
+
 bool GameEngine::is_running() { return !WindowShouldClose() && !quit; }
 
 void GameEngine::update() { mouse_pos = GetMousePosition(); }

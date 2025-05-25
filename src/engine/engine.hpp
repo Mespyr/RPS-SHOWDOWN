@@ -18,18 +18,20 @@ class GameEngine {
         GET_PLAYER_CHOICE,
         TRANSITION_TO_AI_CHOICE,
         GET_AI_CHOICE,
+        DRAW_AI_CHOICE,
 
-        HANDLE_WIN, // single pass for score incrementation
+        HANDLE_WIN,  // single pass for score incrementation
         YOU_WON_SCREEN,
 
         YOU_TIED_SCREEN,
         YOU_LOST_SCREEN,
-		HANDLE_RESET // single pass to reset score before trying again
+        HANDLE_RESET  // single pass to reset score before trying again
     } State;
 
     // general
-    State get_state();
-    void  set_state(State state);
+    State      get_state();
+    void       set_state(State state);
+    RPS_Choice get_player_choice();
 
     bool is_running();
     void update();

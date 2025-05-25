@@ -21,8 +21,13 @@ int main() {
             break;
         case GameEngine::State::GET_AI_CHOICE:
             game.set_ai_choice(data.generate_ai_choice());
+			data.add_player_choice(game.get_player_choice());
+            game.set_state(GameEngine::State::DRAW_AI_CHOICE);
             game.draw_get_ai_choice();
             break;
+        case GameEngine::State::DRAW_AI_CHOICE:
+			game.draw_get_ai_choice();
+			break;
 
         case GameEngine::State::HANDLE_WIN:
             data.inc_score();  // sets point gained last round to true
@@ -43,9 +48,9 @@ int main() {
             break;
         case GameEngine::State::HANDLE_RESET:
             data.reset();  // sets point gained last round to false
-			game.set_state(GameEngine::State::GET_PLAYER_CHOICE);
-			game.draw_get_player_choice();
-			break;
+            game.set_state(GameEngine::State::GET_PLAYER_CHOICE);
+            game.draw_get_player_choice();
+            break;
         }
 
         // game render sequence

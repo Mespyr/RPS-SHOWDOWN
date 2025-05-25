@@ -22,6 +22,7 @@ class GameData {
     void write_save_data();
 	uint32_t get_high_score();
 	uint32_t get_score();
+	void add_player_choice(RPS_Choice choice);
 
 	void inc_score();
 	void reset();
